@@ -101,7 +101,7 @@ async def sell(message,delay=4):
     print("[.] All items sold!")
     await send_message(message,"[.] All items sold!")
 
-async def use(message,delay=5):
+async def use(message,delay=5   ):
     if (checkstatus("use")):
         await send_message(message,"[.] Already using.")
         return        
