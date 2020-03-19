@@ -4,36 +4,28 @@ import time
 import json
 
 from services import *
+
 # DISCORD ENV VARS
-
-# info = json.loads(open("info.json","r").read())
-
-
-# TOKEN = info["token"]
-# SENPAI = info["username"]
-# SENPAI_ID = info["userid"]
 
 client = discord.Client()
 
 TOKEN = "oh so secret"
-SENPAI = str(client.user)
-# SENPAI_ID = str(client.author.)
 
 @client.event
 async def on_message(message):
 	splitmsg = message.content.split()
-	# print(splitmsg)
 
-	if (message.content.startswith("//wtf// ")):
-		if (str(message.author) == SENPAI):
+	if (message.author == client.user):
+
+		if (message.content.startswith("//wtf// ")):
 
 			if (splitmsg[1] == "start"):
 			
 				if (splitmsg[2] == "ezmoney"):
 					await send_message(message,"//wtf// start beg")
-					await asyncio.sleep(3)
+					await asyncio.sleep(5)
 					await send_message(message,"//wtf// start postmeme")
-					await asyncio.sleep(3)
+					await asyncio.sleep(5)
 					await send_message(message,"//wtf// start deposit")
 
 				if (splitmsg[2] == "beg"):
@@ -76,7 +68,8 @@ async def on_message(message):
 					print("[.] Stopping service {}.".format(splitmsg[2]))
 	
 def main():
-	
+	SENPAI = client.user
+
 	jsondata = json.loads(open("status.json","r").read())
 
 	for key in jsondata["services"].keys():
