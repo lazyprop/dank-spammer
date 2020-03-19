@@ -9,7 +9,8 @@ from services import *
 
 client = discord.Client()
 
-TOKEN = "Mzk0NDI2NTkwODY5NzE3MDAw.XllhxQ.uU4feCOkkrymyraCCYKOR3H3DXQ"
+TOKEN = "oh so secret"
+DANKMEMER = "Dank Memer#5192"
 
 @client.event
 async def on_message(message):
@@ -47,7 +48,7 @@ async def on_message(message):
 					await postmeme(message, delay)
 
 				if (splitmsg[2] == "gamble"):
-					await gamble(message,amount,tries)
+					await gamble(message)
 
 				if (splitmsg[2] == "clear"):
 					await clear(message,12,60)
@@ -67,6 +68,14 @@ async def on_message(message):
 					await send_message(message,"[.] Stopping service {}".format(splitmsg[2]))
 					print("[.] Stopping service {}.".format(splitmsg[2]))
 	
+	# elif str(message.author) == DANKMEMER:
+	# 	if (len(message.embeds) > 0): # message has embed
+			
+	# 		await whichtype(message)
+
+	# 	else:						  # message doesnt have embed
+	# 		pass			
+
 def main():
 	SENPAI = client.user
 

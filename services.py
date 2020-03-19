@@ -46,9 +46,9 @@ async def gamble(message,delay = 3):
 
     flipstatus("gamble")
 
-    args = message.content[3:].split()
+    args = message.content.split()[3:]
     amount = args[0].split(":")[0]
-
+    tries = int(args[0].split(":")[1])
 
     print("[.] Gambling with {} coins a total of {} times...".format(amount, tries))
     await send_message(message,"[.] Gambling with {} coins a total of {} times...".format(amount, tries))
