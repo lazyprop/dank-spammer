@@ -9,7 +9,7 @@ from services import *
 
 client = discord.Client()
 
-TOKEN = "oh so secret"
+TOKEN = "Mzk0NDI2NTkwODY5NzE3MDAw.XllhxQ.uU4feCOkkrymyraCCYKOR3H3DXQ"
 
 @client.event
 async def on_message(message):
@@ -70,9 +70,14 @@ async def on_message(message):
 def main():
 	SENPAI = client.user
 
-	jsondata = json.loads(open("status.json","r").read())
+	services = ["beg","postmeme","deposit","gamble","use","sell","ezmoney"]
+	try:		
+		jsondata = json.loads(open("status.json","r").read())
+	except:
+		jsondata = dict()
 
-	for key in jsondata["services"].keys():
+	jsondata["services"] = dict()
+	for key in services:
 		jsondata["services"][key] = 0
 
 	file = open("status.json","w")

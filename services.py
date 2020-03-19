@@ -125,6 +125,7 @@ async def use(message,delay=5   ):
 
         await send_message(message, "[>] Used {} {} times.".format(it,val))
 
+    flipstatus("use")
     print("[.] All items used!")
     await send_message(message,"[.] All items used!")
 
