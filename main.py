@@ -16,7 +16,7 @@ from services import *
 client = discord.Client()
 
 TOKEN = "oh so secret"
-SENPAI = str(client.author)
+SENPAI = str(client.user)
 # SENPAI_ID = str(client.author.)
 
 @client.event
