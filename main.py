@@ -9,7 +9,7 @@ from services import *
 
 client = discord.Client()
 
-TOKEN = "oh so secret"
+TOKEN = "NDcyNjU0NzQ0ODgwNjc2ODg5.XoN4tA.htD-Y13LDBKlYgNX2Y-xCQ_cD7Q"
 DANKMEMER = "Dank Memer#5192"
 
 @client.event
@@ -28,6 +28,8 @@ async def on_message(message):
 					await send_message(message,"//wtf// start postmeme")
 					await asyncio.sleep(5)
 					await send_message(message,"//wtf// start deposit")
+					await asyncio.sleep(5)
+					await send_message(message,"//wtf// start fish")
 
 				if (splitmsg[2] == "beg"):
 					delay = 30
@@ -46,6 +48,12 @@ async def on_message(message):
 					if (len(splitmsg) > 3):
 						delay = splitmsg[3]
 					await postmeme(message, delay)
+
+				if (splitmsg[2] == "fish"):
+					delay = 30
+					if (len(splitmsg) > 3):
+						delay = splitmsg[3]
+					await fish(message, delay)
 
 				if (splitmsg[2] == "gamble"):
 					await gamble(message)
@@ -79,7 +87,7 @@ async def on_message(message):
 def main():
 	SENPAI = client.user
 
-	services = ["beg","postmeme","deposit","gamble","use","sell","ezmoney"]
+	services = ["beg","postmeme","deposit","gamble","use","sell","ezmoney", "fish"]
 	try:		
 		jsondata = json.loads(open("status.json","r").read())
 	except:

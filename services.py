@@ -39,6 +39,18 @@ async def postmeme(message, delay = 60):
             await send_message(message,x)
             await asyncio.sleep(delay)
 
+async def fish(message, delay = 30):
+    if (checkstatus("fish")):
+        await send_message(message,"[.] Already fishing.")
+        return
+
+    flipstatus("fish")
+    print("[.] Fishing after every {} seconds...".format(delay))
+    await send_message(message,"[.] Fishing after every {} seconds...".format(delay))
+    while checkstatus("fish"):
+        await send_message(message, "pls fish")
+        await asyncio.sleep(delay)
+
 async def gamble(message,delay = 3):
     if (checkstatus("gamble")):
         await send_message(message,"[.] Already gambling.")
